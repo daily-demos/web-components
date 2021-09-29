@@ -1,0 +1,19 @@
+body {
+    font-size: 16px;
+    max-width: 1000px;
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+    font-size: 16px;
+}
+
+video {
+    object-fit: cover;
+    border-radius: 50%;
+    height: 12em;
+    width: 12em;
+}
