@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily web components</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <main>
+        <h1>Daily web components demo</h1>
+        <input id="roomId" value="https://[your-domain].daily.co/[your-room]" type="text">
+        <daily-call-join></daily-call-join>
+        <daily-call>
+            <daily-window id="videos"></daily-window>
+            <daily-tray>
+                <daily-toggle-video></daily-toggle-video>
+                <daily-toggle-audio></daily-toggle-audio>
+                <daily-toggle-screen></daily-toggle-screen>
+                <daily-call-leave></daily-call-leave>
+            </daily-tray>
+        </daily-call>
+    </main>
+    <footer>
+    </footer>
+    <script src="https://unpkg.com/@daily-co/daily-js"></script>
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
