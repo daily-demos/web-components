@@ -5,9 +5,11 @@ template.innerHTML = `
   :host {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+    justify-self: center;
     background-color: #1f2d3d;
     border: 1px solid #1f2d3d;
-}
+  }
   </style>
   <slot></slot>
   `;
