@@ -4,7 +4,35 @@ body {
   min-height: 100vh;
 }
 
-input {
-  font-size: 16px;
+header {
+  display: grid;
+  grid-template-columns: 120px auto;
+  padding-top: 1em;
+  border-bottom: 1px solid lightgrey;
 }
 
+header h1 {
+  font-size: 1.5em;
+}
+
+.logo {
+  width: 100px;
+  margin: 2px 10px 0 10px;
+}
+
+main {
+  padding-top: 1em;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+input {
+  margin: 10px;
+}
+
+#daily-call-container {
+  width: 75vw;
+  height: 75vh;
+  display: grid;
+}

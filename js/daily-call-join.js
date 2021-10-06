@@ -15,7 +15,7 @@ template.innerHTML = `
         cursor: pointer;
     }
   </style>
-  <button id="join">Join a call</button>
+  <button id="join">Join</button>
   `;
 
 
