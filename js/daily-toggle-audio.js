@@ -8,6 +8,8 @@ template.innerHTML = `
   #audio {
     height: 4em;
     width: 4em;
+    background-color: #eff3f5;
+    border: 0;
   }
   #audio svg {
     height: 2em;

@@ -8,6 +8,8 @@ template.innerHTML = `
   #screenshare {
     height: 4em;
     width: 4em;
+    background-color: #eff3f5;
+    border: 0;
   }
   #screenshare svg {
     height: 2em;

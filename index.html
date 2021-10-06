@@ -10,19 +10,25 @@
 </head>
 
 <body>
+    <header>
+      <img class="logo" alt="Daily logo" src="assets/logo.png" />
+      <h1>Daily web components demo</h1>
+    </header>
     <main>
-        <h1>Daily web components demo</h1>
-        <input id="roomId" value="https://[your-domain].daily.co/[your-room]" type="text" size="40">
-        <daily-call-join></daily-call-join>
+      <input id="roomId" value="https://[your-domain].daily.co/[your-room]" type="text" size="40">
+      <!-- todo: take this join out of the web-component -->
+      <daily-call-join></daily-call-join>
+      <div id="daily-call-container">
         <daily-call>
-            <daily-window id="videos"></daily-window>
-            <daily-tray>
-                <daily-toggle-video></daily-toggle-video>
-                <daily-toggle-audio></daily-toggle-audio>
-                <daily-toggle-screen></daily-toggle-screen>
-                <daily-call-leave></daily-call-leave>
-            </daily-tray>
+          <daily-window></daily-window>
+          <daily-tray>
+            <daily-toggle-video></daily-toggle-video>
+            <daily-toggle-audio></daily-toggle-audio>
+            <daily-toggle-screen></daily-toggle-screen>
+            <daily-leave></daily-leave>
+          </daily-tray>
         </daily-call>
+      </div>
     </main>
     <footer>
     </footer>

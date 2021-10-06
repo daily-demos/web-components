@@ -4,10 +4,11 @@ template.innerHTML = `
   <style>
   :host {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto auto;
     grid-gap: 0.5em;
-    justify-self: center;
-    background-color: #1f2d3d;
+    padding: 0.5em;
+    justify-content: center;
+    background-color: #eff3f5;
     border: 1px solid #1f2d3d;
   }
   </style>
