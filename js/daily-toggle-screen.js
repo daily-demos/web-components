@@ -22,17 +22,17 @@ template.innerHTML = `
   `;
 
 class DailyToggleScreen extends HTMLElement {
-    constructor(options = {}) {
-        super();
-        const shadow = this.attachShadow({ mode: 'open' });
-        const button = template.content.cloneNode(true);
-        this.nativeEl = button.querySelector('button');
-        shadow.appendChild(button);
-        bool = bool ? false : true;
-        this.addEventListener('click', e => {
-            (callObject.participants().local.screen ? callObject.stopScreenShare() : callObject.startScreenShare())
-        });
-    }
+  constructor(options = {}) {
+    super();
+    const shadow = this.attachShadow({ mode: 'open' });
+    const button = template.content.cloneNode(true);
+    this.nativeEl = button.querySelector('button');
+    shadow.appendChild(button);
+    bool = bool ? false : true;
+    this.addEventListener('click', e => {
+        (callObject.participants().local.screen ? callObject.stopScreenShare() : callObject.startScreenShare())
+    });
+  }
 }
 
 window.customElements.define('daily-toggle-screen', DailyToggleScreen);

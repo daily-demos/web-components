@@ -21,20 +21,20 @@ template.innerHTML = `
   </button>
   `;
 
-class DailyToggleVideo extends HTMLElement {
-    constructor(options = {}) {
-        super();
-        const shadow = this.attachShadow({ mode: 'open' });
-        const button = template.content.cloneNode(true);
-        this.nativeEl = button.querySelector('button');
-        shadow.appendChild(button);
-        this.addEventListener('click', e => {
-            callObject.setLocalVideo(toggle());
-        });
-        console.log(`Video is now ${callObject.participants().local.tracks.video.state}`)
-    }
+class DailyToggleCamera extends HTMLElement {
+  constructor(options = {}) {
+    super();
+    const shadow = this.attachShadow({ mode: 'open' });
+    const button = template.content.cloneNode(true);
+    this.nativeEl = button.querySelector('button');
+    shadow.appendChild(button);
+    this.addEventListener('click', e => {
+        callObject.setLocalVideo(toggle());
+    });
+    console.log(`Camera is now ${callObject.participants().local.tracks.video.state}`)
+  }
 }
 
-window.customElements.define('daily-toggle-video', DailyToggleVideo);
+window.customElements.define('daily-toggle-camera', DailyToggleCamera);
 
-export default { DailyToggleVideo };
+export default { DailyToggleCamera };
