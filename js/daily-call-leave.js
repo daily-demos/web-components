@@ -20,18 +20,18 @@ template.innerHTML = `
 
 
 class DailyLeaveCall extends HTMLElement {
-    constructor() {
-        super();
-        const shadow = this.attachShadow({ mode: 'open' });
-        const button = template.content.cloneNode(true);
-        this.nativeEl = button.querySelector('button');
-        shadow.appendChild(button);
-        this.addEventListener('click', e => {
-            document.getElementById("vid" + callObject.participants().local.user_id).remove();
-            document.getElementById("aud" + callObject.participants().local.user_id).remove();
-            callObject.leave();
-        });
-    }
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: 'open' });
+    const button = template.content.cloneNode(true);
+    this.nativeEl = button.querySelector('button');
+    shadow.appendChild(button);
+    this.addEventListener('click', e => {
+        document.getElementById("vid" + callObject.participants().local.user_id).remove();
+        document.getElementById("aud" + callObject.participants().local.user_id).remove();
+        callObject.leave();
+    });
+  }
 }
 
 window.customElements.define('daily-leave', DailyLeaveCall);

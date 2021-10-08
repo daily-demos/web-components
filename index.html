@@ -10,30 +10,35 @@
 </head>
 
 <body>
-    <header>
-      <img class="logo" alt="Daily logo" src="assets/logo.png" />
-      <h1>Daily web components demo</h1>
-    </header>
-    <main>
-      <input id="roomId" value="https://[your-domain].daily.co/[your-room]" type="text" size="40">
+  <header>
+    <img class="logo" alt="Daily logo" src="assets/logo.png" />
+    <h1>Daily web components demo</h1>
+      <a class="docsLink" href="https://docs.daily.co/reference">API docs</a>
+      <span class="divider"></span>
+      <a target="_blank" href="https://github.com/daily-demos/web-components"
+        ><img class="icon" alt="GitHub logo" src="assets/github_logo.png"
+      /></a>
+  </header>
+  <main>
+    <div>
+      <input id="roomId" value="https://[your-domain].daily.co/[your-room]" type="text" size="50">
       <!-- todo: take this join out of the web-component -->
-      <daily-call-join></daily-call-join>
-      <div id="daily-call-container">
-        <daily-call>
-          <daily-window></daily-window>
-          <daily-tray>
-            <daily-toggle-video></daily-toggle-video>
-            <daily-toggle-audio></daily-toggle-audio>
-            <daily-toggle-screen></daily-toggle-screen>
-            <daily-leave></daily-leave>
-          </daily-tray>
-        </daily-call>
-      </div>
-    </main>
-    <footer>
-    </footer>
-    <script src="https://unpkg.com/@daily-co/daily-js"></script>
-    <script type="module" src="index.js"></script>
+      <button id="join">Join</button>
+    </div>
+    <div id="daily-call-container">
+      <daily-call>
+        <daily-window></daily-window>
+        <daily-tray>
+          <daily-toggle-camera></daily-toggle-camera>
+          <daily-toggle-mic></daily-toggle-mic>
+          <daily-toggle-screen></daily-toggle-screen>
+          <daily-leave></daily-leave>
+        </daily-tray>
+      </daily-call>
+    </div>
+  </main>
+  <script src="https://unpkg.com/@daily-co/daily-js"></script>
+  <script type="module" src="index.js"></script>
 </body>
 
 </html>

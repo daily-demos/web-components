@@ -6,7 +6,7 @@ body {
 
 header {
   display: grid;
-  grid-template-columns: 120px auto;
+  grid-template-columns: 120px auto 90px 36px 60px;
   padding-top: 1em;
   border-bottom: 1px solid lightgrey;
 }
@@ -20,19 +20,62 @@ header h1 {
   margin: 2px 10px 0 10px;
 }
 
+.divider {
+  background: lightgray;
+  margin: 0 16px;
+  display: block;
+  height: 32px;
+  width: 1px;
+}
+
+.icon {
+  width: 32px;
+}
+
+.docsLink {
+  color: #1f2d3d;
+  background: white;
+  border: 1px solid lightgray;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 27px;
+}
+
+.docsLink:active {
+  background: white;
+}
+
 main {
-  padding-top: 1em;
+  padding-top: 2em;
   display: grid;
   justify-content: center;
   align-content: center;
 }
 
-input {
-  margin: 10px;
-}
-
 #daily-call-container {
   width: 75vw;
   height: 75vh;
+  max-width: 1280px;
+  max-height: 720px;
   display: grid;
 }
+
+#join {
+  padding: 4px 16px;
+  border: 1px solid #1bebb9;
+  border-radius: 8px;
+  background-color: #1bebb9;
+  color: #1f2d3d;
+  margin-bottom: 2em;
+}
+#join:hover {
+  background-color: #1bfdb9;
+  cursor: pointer;
+}
+

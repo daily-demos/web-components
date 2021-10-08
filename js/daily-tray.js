@@ -16,13 +16,13 @@ template.innerHTML = `
   `;
 
 class DailyTray extends HTMLElement {
-    constructor(options = {}) {
-        super();
-        const shadow = this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
+  constructor(options = {}) {
+    super();
+    const shadow = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-    }
-    connectedCallback() {}
+  }
+  connectedCallback() {}
 }
 
 window.customElements.define('daily-tray', DailyTray);

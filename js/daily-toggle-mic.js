@@ -21,20 +21,20 @@ template.innerHTML = `
   </button>
   `;
 
-class DailyToggleAudio extends HTMLElement {
-    constructor(options = {}) {
-        super();
-        const shadow = this.attachShadow({ mode: 'open' });
-        const button = template.content.cloneNode(true);
-        this.nativeEl = button.querySelector('button');
-        shadow.appendChild(button);
-        this.addEventListener('click', e => {
-            callObject.setLocalAudio(toggle())
-        });
-        console.log(`Audio is now ${callObject.participants().local.tracks.audio.state}`)
-    }
+class DailyToggleMic extends HTMLElement {
+  constructor(options = {}) {
+    super();
+    const shadow = this.attachShadow({ mode: 'open' });
+    const button = template.content.cloneNode(true);
+    this.nativeEl = button.querySelector('button');
+    shadow.appendChild(button);
+    this.addEventListener('click', e => {
+        callObject.setLocalAudio(toggle())
+    });
+    console.log(`Mic is now ${callObject.participants().local.tracks.audio.state}`)
+  }
 }
 
-window.customElements.define('daily-toggle-audio', DailyToggleAudio);
+window.customElements.define('daily-toggle-mic', DailyToggleMic);
 
-export default { DailyToggleAudio };
+export default { DailyToggleMic };
