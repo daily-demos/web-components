@@ -3,9 +3,9 @@ const template = document.createElement('template');
 template.innerHTML = `
   <style>
   :host {
-    background-color: #1f2d3d;
+    background-color: #121a24;
     display: grid;
-    grid-template-rows: auto 4.5em;
+    grid-template-rows: auto 4.25em;
   }
   </style>
   <slot></slot>

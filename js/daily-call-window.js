@@ -3,7 +3,16 @@ const template = document.createElement('template');
 template.innerHTML = `
   <style>
   :host {
-    background-color: #1f2d3d;
+    background-color: #121a24;
+    height: 480px;
+    width: 720px;
+  }
+  ::slotted() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   </style>
   <slot></slot>

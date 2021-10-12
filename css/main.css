@@ -67,15 +67,17 @@ main {
 }
 
 #join {
+  font-size: 12px;
   padding: 4px 16px;
-  border: 1px solid #1bebb9;
   border-radius: 8px;
+  margin-bottom: 2em;
+  border: 1px solid #1bebb9;
   background-color: #1bebb9;
   color: #1f2d3d;
-  margin-bottom: 2em;
 }
 #join:hover {
-  background-color: #1bfdb9;
   cursor: pointer;
+  background-color: #1bfdb9;
+  box-shadow: rgba(27, 235, 185, 0.6) 0px 0px 0px 2px;
 }
 

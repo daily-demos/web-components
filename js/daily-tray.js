@@ -8,8 +8,11 @@ template.innerHTML = `
     grid-gap: 0.5em;
     padding: 0.5em;
     justify-content: center;
-    background-color: #eff3f5;
+    background-color: #ffffff;
     border: 1px solid #1f2d3d;
+  }
+  :host > * > button {
+    background-color: red !important;
   }
   </style>
   <slot></slot>
@@ -20,7 +23,6 @@ class DailyTray extends HTMLElement {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true))
-
   }
   connectedCallback() {}
 }
