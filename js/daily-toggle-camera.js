@@ -2,24 +2,6 @@ const template = document.createElement('template');
 
 template.innerHTML = `
   <style>
-    :host {
-      height: 4em;
-      width: 4em;
-      background-color: #ffffff;
-      border: 0;
-      font-size: 14px;
-      line-height: 20px;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    :host(:hover) {
-      background-color: #eff3f5;
-    }
-    :host svg {
-      height: 2em;
-    }
   </style>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
       <g>

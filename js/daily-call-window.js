@@ -4,25 +4,20 @@ template.innerHTML = `
   <style>
   :host {
     background-color: #121a24;
-    height: 480px;
-    width: 720px;
   }
-  ::slotted() {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  ::slotted(video) {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
   }
   </style>
   <slot></slot>
   `;
 
 class DailyCallWindow extends HTMLElement {
-  constructor(options = {}) {
+  constructor() {
     super();
-    const shadow = this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true));
   }
   connectedCallback() {}
 }
