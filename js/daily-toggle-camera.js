@@ -9,35 +9,25 @@ template.innerHTML = `
         <path d="M16.5 10.9491C16.5 10.6634 16.6221 10.3914 16.8356 10.2017L19.3356 7.97943C19.9805 7.40618 21 7.86399 21 8.72684V15.2732C21 16.136 19.9805 16.5938 19.3356 16.0206L16.8356 13.7983C16.6221 13.6086 16.5 13.3366 16.5 13.0509V10.9491Z" />
       </g>
     </svg>
-    <slot>Turn off</slot>
+    <slot>Camera</slot>
   `;
 
-class DailyToggleCamera extends HTMLButtonElement {
-
-  static get observedAttributes() { return ['muted']; }
-
-  get muted() {
-    return this.hasAttribute('muted');  
-  }
-
-  set muted(val) {
-    val ? this.setAttribute('muted','') : this.removeAttribute('muted');
-  }
+class DailyToggleCamera extends HTMLElement {
 
   constructor() {
     super();
     this.attachShadow({ mode: 'open' }).appendChild(
       template.content.cloneNode(true)
     );
+
     this.addEventListener('click', e => {
-      callObject.setLocalVideo(this.muted);
-      this.muted ? this.textContent = "Turn off" : this.textContent = "Turn on";
-      this.muted = !this.muted;
+      callObject.setLocalVideo(!callObject.localVideo());
+      callObject.localVideo() ? this.textContent = "Turn on" : this.textContent = "Turn off";
     });
-    this.addEventListener('slotchange', event => console.log(event));
+
   }
 }
 
-window.customElements.define('daily-toggle-camera', DailyToggleCamera, { extends: 'button' });
+window.customElements.define('daily-toggle-camera', DailyToggleCamera );
 
 export default { DailyToggleCamera };
