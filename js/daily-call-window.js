@@ -5,11 +5,17 @@ template.innerHTML = `
     :host {
       background-color: #121a24;
       overflow: hidden;
+      width: inherit;
+      height: inherit;
+      display: grid;
+      grid-template-columns: auto auto;
+      align-content: center;
     }
     ::slotted(video) {
-      object-fit: cover;
       width: 100%;
-      height: 100%;
+    }
+    ::slotted(audio) {
+      display: none;
     }
   </style>
   <slot></slot>
@@ -20,7 +26,9 @@ class DailyCallWindow extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true));
   }
-  connectedCallback() {}
+  connectedCallback() {
+    console.log("<daily-window> has loaded");
+  }
 }
 
 window.customElements.define('daily-window', DailyCallWindow);

@@ -14,7 +14,7 @@ class DailyLeaveCall extends HTMLElement {
     this.attachShadow({ mode: 'open' }).appendChild(
       template.content.cloneNode(true)
     );
-    this.addEventListener('click', e => {
+    this.addEventListener('click', _e => {
       document.getElementById("vid" + callObject.participants().local.user_id).remove();
       document.getElementById("aud" + callObject.participants().local.user_id).remove();
       callObject.leave();
