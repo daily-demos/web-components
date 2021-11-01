@@ -10,7 +10,7 @@ template.innerHTML = `
       background-color: #ffffff;
       border: 1px solid #1f2d3d;
     }
-    ::slotted(*) {
+    daily-toggle-camera, daily-toggle-mic, daily-toggle-screen, daily-leave {
       height: 3.75em;
       width: 3.75em;
       padding: 0.25em;
@@ -24,12 +24,15 @@ template.innerHTML = `
       flex-direction: column;
       align-items: center;
     }
-    ::slotted(*:hover) {
+    :host > *:hover {
       background-color: #eff3f5;
       cursor: pointer;
     }
   </style>
-  <slot></slot>
+  <daily-toggle-camera>Camera</daily-toggle-camera>
+  <daily-toggle-mic>Mic</daily-toggle-mic>
+  <daily-toggle-screen></daily-toggle-screen>
+  <daily-leave></daily-leave>
   `;
 
 class DailyTray extends HTMLElement {
