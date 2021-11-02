@@ -61,8 +61,6 @@ main {
 #daily-call-container {
   width: 75vw;
   height: 75vh;
-  max-width: 1280px;
-  max-height: 720px;
   display: grid;
 }
 
@@ -75,6 +73,7 @@ main {
   background-color: #1bebb9;
   color: #1f2d3d;
 }
+
 #join:hover {
   cursor: pointer;
   background-color: #1bfdb9;
