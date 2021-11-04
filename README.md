@@ -12,15 +12,14 @@ You can use existing Daily rooms in the demo by pasting the room URL into the in
 
 
 This demo uses the following Daily methods:
-- createCallObject()
-- join()
-- leave()
-- setLocalVideo()
-- setLocalAudio()
-- startScreenShare()
-- stopScreenShare()
+- [`createCallObject()`](https://docs.daily.co/reference/rn-daily-js/factory-methods/create-call-object#main)
+- [`join()`](https://docs.daily.co/reference/daily-js/instance-methods/join#main)
+- [`leave()`](https://docs.daily.co/reference/daily-js/instance-methods/leave#main)
+- [`setLocalVideo()`](https://docs.daily.co/reference/daily-js/instance-methods/set-local-video#main)
+- [`setLocalAudio()`](https://docs.daily.co/reference/daily-js/instance-methods/set-local-audio#main)
+- [`startScreenShare()`](https://docs.daily.co/reference/daily-js/instance-methods/start-screen-share#main)
+- [`stopScreenShare()`](https://docs.daily.co/reference/daily-js/instance-methods/stop-screen-share#main)
 
 This demo uses the following Daily events:
-- track-started
-- participant-left
-
+- [`track-started`](https://docs.daily.co/reference/daily-js/events/participant-events#track-started)
+- [`participant-left`](https://docs.daily.co/reference/rn-daily-js/events/participant-events#participant-left)
