@@ -22,4 +22,4 @@ This demo uses the following Daily methods:
 
 This demo uses the following Daily events:
 - [`track-started`](https://docs.daily.co/reference/daily-js/events/participant-events#track-started)
-- [`participant-left`](https://docs.daily.co/reference/rn-daily-js/events/participant-events#participant-left)
+- [`participant-left`](https://docs.daily.co/reference/daily-js/events/participant-events#participant-left)
