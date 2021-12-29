@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement("template");
 
 template.innerHTML = `
   <slot name="icon">
@@ -36,27 +36,31 @@ const enabledCamIcon = `
 `;
 
 class DailyToggleCamera extends HTMLElement {
-
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' }).appendChild(
+    this.attachShadow({ mode: "open" }).appendChild(
       template.content.cloneNode(true)
     );
 
-    this.addEventListener('click', e => {
+    this.addEventListener("click", (_e) => {
+      if (callObject.localVideo()) {
+      }
       callObject.setLocalVideo(!callObject.localVideo());
       if (callObject.localVideo()) {
-        this.shadowRoot.querySelector('slot[name="text"]').textContent = "Turn on"
-        this.shadowRoot.querySelector('slot[name="icon"]').innerHTML = disabledCamIcon
+        this.shadowRoot.querySelector("slot[name='text']").textContent =
+          "Turn on";
+        this.shadowRoot.querySelector("slot[name='icon']").innerHTML =
+          disabledCamIcon;
       } else {
-        this.shadowRoot.querySelector('slot[name="text"]').textContent= "Turn off";
-        this.shadowRoot.querySelector('slot[name="icon"]').innerHTML = enabledCamIcon;
+        this.shadowRoot.querySelector("slot[name='text']").textContent =
+          "Turn off";
+        this.shadowRoot.querySelector("slot[name='icon']").innerHTML =
+          enabledCamIcon;
       }
     });
   }
-
 }
 
-window.customElements.define('daily-toggle-camera', DailyToggleCamera );
+window.customElements.define("daily-toggle-camera", DailyToggleCamera);
 
 export default { DailyToggleCamera };

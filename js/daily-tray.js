@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
@@ -32,17 +32,19 @@ template.innerHTML = `
   <daily-toggle-camera>Camera</daily-toggle-camera>
   <daily-toggle-mic>Mic</daily-toggle-mic>
   <daily-toggle-screen></daily-toggle-screen>
-  <daily-leave></daily-leave>
+  <daily-leave></daily-leave> 
   `;
 
 class DailyTray extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true));
+    this.attachShadow({ mode: "open" }).appendChild(
+      template.content.cloneNode(true)
+    );
   }
   connectedCallback() {}
 }
 
-window.customElements.define('daily-tray', DailyTray);
+window.customElements.define("daily-tray", DailyTray);
 
 export default { DailyTray };
