@@ -31,6 +31,15 @@ class DailyToggleScreen extends HTMLElement {
         : callObject.startScreenShare();
       this.sharing ? (this.textContent = "Share") : (this.textContent = "Stop");
       this.sharing = !this.sharing;
+      // when sharing stops, make sure to show camera again (if on)
+      if (!this.sharing && callObject.localVideo()) {
+        const localVid = document.getElementById(
+          `vid-${callObject.participants().local.session_id}`
+        );
+        localVid.srcObject = new MediaStream([
+          callObject.participants().local.tracks.video.track,
+        ]);
+      }
     });
   }
 }
