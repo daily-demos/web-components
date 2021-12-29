@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement("template");
 
 template.innerHTML = `
   <slot name="icon">
@@ -40,27 +40,28 @@ const unmutedIcon = `
 `;
 
 class DailyToggleMic extends HTMLElement {
-
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' }).appendChild(
+    this.attachShadow({ mode: "open" }).appendChild(
       template.content.cloneNode(true)
     );
 
-    this.addEventListener('click', e => {
+    this.addEventListener("click", (e) => {
       callObject.setLocalAudio(!callObject.localAudio());
       if (callObject.localAudio()) {
-        this.shadowRoot.querySelector('slot[name="text"]').textContent = "Unmute"
-        this.shadowRoot.querySelector('slot[name="icon"]').innerHTML = unmutedIcon
+        this.shadowRoot.querySelector("slot[name='text']").textContent =
+          "Unmute";
+        this.shadowRoot.querySelector("slot[name='icon']").innerHTML =
+          unmutedIcon;
       } else {
-        this.shadowRoot.querySelector('slot[name="text"]').textContent= "Mute";
-        this.shadowRoot.querySelector('slot[name="icon"]').innerHTML = mutedIcon;
+        this.shadowRoot.querySelector("slot[name='text']").textContent = "Mute";
+        this.shadowRoot.querySelector("slot[name='icon']").innerHTML =
+          mutedIcon;
       }
     });
   }
-
 }
 
-window.customElements.define('daily-toggle-mic', DailyToggleMic);
+window.customElements.define("daily-toggle-mic", DailyToggleMic);
 
 export default { DailyToggleMic };

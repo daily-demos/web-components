@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
@@ -24,13 +24,15 @@ template.innerHTML = `
 class DailyCallWindow extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true));
+    this.attachShadow({ mode: "open" }).appendChild(
+      template.content.cloneNode(true)
+    );
   }
   connectedCallback() {
     console.log("<daily-window> has loaded");
   }
 }
 
-window.customElements.define('daily-window', DailyCallWindow);
+window.customElements.define("daily-window", DailyCallWindow);
 
 export default { DailyCallWindow };

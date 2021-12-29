@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
@@ -8,30 +8,33 @@ template.innerHTML = `
   `;
 
 class DailyToggleScreen extends HTMLElement {
-
-  static get observedAttributes() { return ['sharing']; }
+  static get observedAttributes() {
+    return ["sharing"];
+  }
 
   get sharing() {
-    return this.hasAttribute('sharing');  
+    return this.hasAttribute("sharing");
   }
 
   set sharing(val) {
-    val ? this.setAttribute('sharing','') : this.removeAttribute('sharing');
+    val ? this.setAttribute("sharing", "") : this.removeAttribute("sharing");
   }
 
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' }).appendChild(
+    this.attachShadow({ mode: "open" }).appendChild(
       template.content.cloneNode(true)
     );
-    this.addEventListener('click', e => {
-      callObject.participants().local.screen ? callObject.stopScreenShare() : callObject.startScreenShare();
-      this.sharing ? this.textContent = "Share" : this.textContent = "Stop";
+    this.addEventListener("click", (e) => {
+      callObject.participants().local.screen
+        ? callObject.stopScreenShare()
+        : callObject.startScreenShare();
+      this.sharing ? (this.textContent = "Share") : (this.textContent = "Stop");
       this.sharing = !this.sharing;
     });
   }
 }
 
-window.customElements.define('daily-toggle-screen', DailyToggleScreen);
+window.customElements.define("daily-toggle-screen", DailyToggleScreen);
 
 export default { DailyToggleScreen };

@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
@@ -7,21 +7,24 @@ template.innerHTML = `
     <span>Leave</span>
   `;
 
-
 class DailyLeaveCall extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' }).appendChild(
+    this.attachShadow({ mode: "open" }).appendChild(
       template.content.cloneNode(true)
     );
-    this.addEventListener('click', _e => {
-      document.getElementById("vid" + callObject.participants().local.user_id).remove();
-      document.getElementById("aud" + callObject.participants().local.user_id).remove();
+    this.addEventListener("click", (_e) => {
+      document
+        .getElementById(`vid-${callObject.participants().local.user_id}`)
+        .remove();
+      document
+        .getElementById(`aud-${callObject.participants().local.user_id}`)
+        .remove();
       callObject.leave();
     });
   }
 }
 
-window.customElements.define('daily-leave', DailyLeaveCall);
+window.customElements.define("daily-leave", DailyLeaveCall);
 
 export default { DailyLeaveCall };

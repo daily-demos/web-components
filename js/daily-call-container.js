@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
@@ -16,61 +16,59 @@ template.innerHTML = `
 class DailyCallContainer extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true));
+    this.attachShadow({ mode: "open" }).appendChild(
+      template.content.cloneNode(true)
+    );
 
-    callObject.on('track-started', trackStarted);
+    callObject.on("track-started", trackStarted);
 
     callObject.on("participant-left", (e) => {
-      document.getElementById("vid" + e.participant.user_id).remove();
-    });
-
-    callObject.on("active-speaker-change", (e) => {
-      console.log(e);
+      document.getElementById("vid-" + e.participant.user_id).remove();
     });
   }
 }
 
 function trackStarted(e) {
-  const vidsContainer = document.getElementsByTagName('daily-window')[0];
+  const vidsContainer = document.getElementsByTagName("daily-window")[0];
   const audParticipant = document.getElementById(
-    `aud${e.participant.user_id}`
+    `aud-${e.participant.user_id}`
   );
   try {
-    if (e.track.kind === 'video') {
-      let vid = document.getElementById("vid" + e.participant.session_id);
+    if (e.track.kind === "video") {
+      let vid = document.getElementById(`vid-${e.participant.session_id}`);
       if (!vid) {
-        vid = document.createElement('video');
+        vid = document.createElement("video");
         vid.session_id = e.participant.session_id;
         vid.autoplay = true;
         vid.muted = true;
-        vid.setAttribute('id', 'vid' + e.participant.user_id);
+        vid.setAttribute("id", "vid-" + e.participant.user_id);
         vidsContainer.appendChild(vid);
       }
       vid.srcObject = new MediaStream([e.track]);
     }
-    if (e.track.kind === 'audio') {
-      let aud = document.getElementById("aud" + e.participant.session_id);
+    if (e.track.kind === "audio") {
+      let aud = document.getElementById(`aud-${e.participant.session_id}`);
       if (!aud) {
         if (audParticipant) {
-            audParticipant.remove();
+          audParticipant.remove();
         }
-        aud = document.createElement('audio');
+        aud = document.createElement("audio");
         aud.session_id = e.participant.session_id;
         if (e.participant && e.participant.local) {
-            aud.muted = true;
+          aud.muted = true;
         } else {
-            aud.autoplay = true;
+          aud.autoplay = true;
         }
-        aud.setAttribute('id', `aud${e.participant.user_id}`);
+        aud.setAttribute("id", `aud-${e.participant.user_id}`);
         vidsContainer.appendChild(aud);
       }
       aud.srcObject = new MediaStream([e.track]);
     }
   } catch (err) {
-    console.log(`Error ${err}`)
+    console.log(`Error ${err}`);
   }
 }
 
-window.customElements.define('daily-call', DailyCallContainer);
+window.customElements.define("daily-call", DailyCallContainer);
 
 export default { DailyCallContainer };
