@@ -43,6 +43,10 @@ class DailyTray extends HTMLElement {
     );
   }
   connectedCallback() {}
+
+  disconnectedCallback() {
+    console.log("<daily-tray> removed from the page");
+  }
 }
 
 window.customElements.define("daily-tray", DailyTray);

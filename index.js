@@ -17,16 +17,28 @@ export {
 };
 
 async function initiateCall() {
-  const url = document.getElementById("roomId").value;
-  window.callObject = DailyIframe.createCallObject({
-    url,
-  });
-
-  await callObject.load({ url });
-  callObject.join({ url: url });
+  const roomUrl = document.getElementById("roomId").value;
+  window.callObject = DailyIframe.createCallObject({ url: roomUrl });
+  buildWebComponents();
+  await window.callObject.join();
 }
 
-async function buildWebComponents() {
+function handleJoinError(msg) {
+  const errorDiv = document.getElementById("error-msg");
+  errorDiv.innerText = `${msg}`;
+  document.getElementsByTagName("daily-tray")[0]?.remove();
+  document.getElementsByTagName("daily-call")[0]?.remove();
+  document.getElementsByTagName("daily-window")[0]?.remove();
+}
+
+function clearErrorMsg() {
+  const errorDiv = document.getElementById("error-msg");
+  if (errorDiv.innerText) {
+    errorDiv.innerText = "";
+  }
+}
+
+function buildWebComponents() {
   const container = document.getElementById("daily-call-container");
   const call = document.createElement("daily-call");
   container.appendChild(call);
@@ -36,7 +48,22 @@ async function buildWebComponents() {
 
 const joinButton = document.getElementById("join");
 
-joinButton.addEventListener("click", (_e) => {
-  initiateCall();
-  buildWebComponents();
+function hideJoinButton() {
+  joinButton.disabled = true;
+  joinButton.style = "display:none;";
+}
+
+async function setupCall() {
+  clearErrorMsg();
+  initiateCall().then(hideJoinButton).catch(handleJoinError);
+}
+
+joinButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  setupCall();
+});
+
+joinButton.addEventListener("submit", (e) => {
+  e.preventDefault();
+  setupCall();
 });

@@ -20,12 +20,27 @@ class DailyCallContainer extends HTMLElement {
       template.content.cloneNode(true)
     );
 
+    callObject.on("error", raiseError);
+
     callObject.on("track-started", trackStarted);
 
     callObject.on("participant-left", (e) => {
       document.getElementById("vid-" + e.participant.user_id).remove();
     });
   }
+
+  connectedCallback() {
+    console.log("<daily-call> added to page");
+  }
+
+  disconnectedCallback() {
+    console.log("<daily-call> removed from the page");
+  }
+}
+
+function raiseError(msg) {
+  const errorDiv = document.getElementById("error-msg");
+  errorDiv.innerText = `Problem during the call -- ${msg}`;
 }
 
 function trackStarted(e) {
@@ -64,8 +79,8 @@ function trackStarted(e) {
       }
       aud.srcObject = new MediaStream([e.track]);
     }
-  } catch (err) {
-    console.log(`Error ${err}`);
+  } catch (error) {
+    raiseError(error);
   }
 }
 

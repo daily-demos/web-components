@@ -14,15 +14,28 @@ class DailyLeaveCall extends HTMLElement {
       template.content.cloneNode(true)
     );
     this.addEventListener("click", (_e) => {
-      document
-        .getElementById(`vid-${callObject.participants().local.user_id}`)
-        .remove();
-      document
-        .getElementById(`aud-${callObject.participants().local.user_id}`)
-        .remove();
+      const localVideo = document.getElementById(
+        `vid-${callObject.participants().local.user_id}`
+      );
+      const localAudio = document.getElementById(
+        `aud-${callObject.participants().local.user_id}`
+      );
+      localVideo?.remove();
+      localAudio?.remove();
       callObject.leave();
+      callObject.destroy();
+      cleanUpComponents();
+      const joinButton = document.getElementById("join");
+      joinButton.disabled = false;
+      joinButton.style = "display:initial";
     });
   }
+}
+
+async function cleanUpComponents() {
+  document.getElementsByTagName("daily-tray")[0]?.remove();
+  document.getElementsByTagName("daily-call")[0]?.remove();
+  document.getElementsByTagName("daily-window")[0]?.remove();
 }
 
 window.customElements.define("daily-leave", DailyLeaveCall);

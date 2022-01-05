@@ -26,7 +26,7 @@ class DailyToggleScreen extends HTMLElement {
       template.content.cloneNode(true)
     );
     this.addEventListener("click", (e) => {
-      callObject.participants().local.screen
+      callObject.participants().local?.screen
         ? callObject.stopScreenShare()
         : callObject.startScreenShare();
       this.sharing ? (this.textContent = "Share") : (this.textContent = "Stop");

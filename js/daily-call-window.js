@@ -31,6 +31,10 @@ class DailyCallWindow extends HTMLElement {
   connectedCallback() {
     console.log("<daily-window> has loaded");
   }
+
+  disconnectedCallback() {
+    console.log("<daily-window> removed from the page");
+  }
 }
 
 window.customElements.define("daily-window", DailyCallWindow);
