@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily web components demo</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="header-section">
+          <img src="/assets/logo.svg" alt="Daily logo" />
+          <span class="title">Web Components demo</span>
+        </div>
+        <div class="header-section">
+          <a
+            class="new-tab-link"
+            href="https://docs.daily.co/reference/daily-js"
+            target="_blank"
+            rel="noreferrer noopenner"
+          >
+            <span>API docs</span>
+            <img src="/assets/newtab.svg" alt="New tab" />
+          </a>
+          <a
+            class="github-link"
+            href="https://github.com/daily-demos/web-components"
+            target="_blank"
+            rel="noreferrer noopenner"
+          >
+            <img src="/assets/github.svg" alt="Github" />
+          </a>
+        </div>
+      </header>
+      <main>
+        <form>
+          <label for="roomId">Daily room URL</label>
+          <input
+            id="roomId"
+            value="https://your-domain.daily.co/your-room"
+            type="text"
+            size="50"
+          />
+          <input type="submit" value="Join call" id="join" />
+        </form>
+        <div id="error-msg"></div>
+        <div id="daily-call-container">
+          <!-- web components get built here after call join -->
+        </div>
+      </main>
+    </div>
+    <script src="https://unpkg.com/@daily-co/daily-js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
