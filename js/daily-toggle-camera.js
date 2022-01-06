@@ -47,6 +47,17 @@ class DailyToggleCamera extends HTMLElement {
         // do nothing
       }
 
+      // Because the camera and screenshare share the same video element,
+      // the lines below prevent local video from taking over while the local
+      // participant is sharing their screen.
+      // More robust applications should handle devices video and screenshare
+      // video seperately.
+      if (callObject.participants().local?.screen && callObject.localVideo()) {
+        console.log("Toggle video disabled while screen sharing");
+        this.disabled = true;
+        return;
+      }
+
       callObject.setLocalVideo(!callObject.localVideo());
       if (callObject.localVideo()) {
         this.shadowRoot.querySelector("slot[name='text']").textContent =
