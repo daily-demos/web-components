@@ -52,7 +52,7 @@ class DailyToggleCamera extends HTMLElement {
       // participant is sharing their screen.
       // More robust applications should handle devices video and screenshare
       // video seperately.
-      if (callObject.participants().local?.screen && !callObject.localVideo()) {
+      if (callObject.participants().local?.screen && callObject.localVideo()) {
         console.log("Toggle video disabled while screen sharing");
         this.disabled = true;
         return;
