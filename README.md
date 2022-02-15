@@ -8,11 +8,13 @@ You can check out a live version [here](https://daily-demos.github.io/web-compon
 
 ## Requirements
 
-To use this demo, you will first need to [create a Daily account](https://dashboard.daily.co/signup). You will need your Daily API key, which can be found on the [Developers](https://dashboard.daily.co/developers) page, if you want to create new rooms through the demo UI.
+To use this demo, you will first need to [create a Daily account](https://dashboard.daily.co/signup). Once you have an account and are logged into the [Daily Dashboard](https://dashboard.daily.co), you can [create a new Daily room](https://dashboard.daily.co/rooms/create) and copy its URL.
+
+_Note: You can also create Daily rooms via the [REST API](https://docs.daily.co/reference/rest-api/rooms)._
+
+You can use your Daily room in the demo by pasting the room URL into the input field. The room URL should be in this format to be valid: `https://domain-name.daily.co/room-name`, with `daily-domain` changed to your domain, and `room-name` changed to the name of the existing room you would like to use.
 
 To get started with a local deployment, run a server from this repo's directory. You can use something like `python -m SimpleHTTPServer` (run on the command line in the repo's directory) or use the VSCode [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. See [How do you set up a local testing server?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server) for more info.
-
-You can use existing Daily rooms in the demo by pasting the room URL into the input field. The room URL should be in this format to be valid: `https://domain-name.daily.co/room-name`, with `daily-domain` changed to your domain, and `room-name` changed to the name of the existing room you would like to use.
 
 This demo uses the following Daily methods:
 
