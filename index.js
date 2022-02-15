@@ -58,12 +58,10 @@ async function setupCall() {
   initiateCall().then(hideJoinButton).catch(handleJoinError);
 }
 
-joinButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  setupCall();
-});
+// Grab the first and only form on the page
+const form = document.getElementsByTagName("form")[0];
 
-joinButton.addEventListener("submit", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   setupCall();
 });
